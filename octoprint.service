@@ -1,0 +1,15 @@
+[Unit]
+Description = OctoPrint server
+Wants = network-online.target
+After = network.target network-online.target ffserver.servic
+
+[Service]
+User = pi
+ExecStart = /usr/local/bin/octoprint serve
+RemainAfterExit = no
+Restart = on-failure
+RestartSec = 5s
+
+[Install]
+WantedBy = default.target
+
